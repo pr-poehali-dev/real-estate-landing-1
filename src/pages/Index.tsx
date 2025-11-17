@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { useToast } from '@/hooks/use-toast';
 import Icon from '@/components/ui/icon';
 
 const districts = [
@@ -62,6 +66,19 @@ const testimonials = [
 
 export default function Index() {
   const [activeSection, setActiveSection] = useState('home');
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [formData, setFormData] = useState({ name: '', phone: '', message: '' });
+  const { toast } = useToast();
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    toast({
+      title: 'Заявка отправлена!',
+      description: 'Мы свяжемся с вами в ближайшее время.',
+    });
+    setIsDialogOpen(false);
+    setFormData({ name: '', phone: '', message: '' });
+  };
 
   return (
     <div className="min-h-screen">
@@ -98,7 +115,7 @@ export default function Index() {
                 Контакты
               </button>
             </div>
-            <Button className="hidden md:flex">
+            <Button className="hidden md:flex" onClick={() => setIsDialogOpen(true)}>
               Консультация
             </Button>
           </div>
@@ -118,7 +135,7 @@ export default function Index() {
                 найти идеальную квартиру и избежать мошенников.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Button size="lg" className="text-lg">
+                <Button size="lg" className="text-lg" onClick={() => setIsDialogOpen(true)}>
                   <Icon name="MessageCircle" className="mr-2" size={20} />
                   Бесплатная консультация
                 </Button>
@@ -364,6 +381,60 @@ export default function Index() {
           </div>
         </div>
       </footer>
+
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle className="text-2xl">Бесплатная консультация</DialogTitle>
+            <DialogDescription>
+              Оставьте свои контакты, и мы свяжемся с вами в ближайшее время
+            </DialogDescription>
+          </DialogHeader>
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="space-y-2">
+              <label htmlFor="name" className="text-sm font-medium">
+                Ваше имя
+              </label>
+              <Input
+                id="name"
+                placeholder="Иван Иванов"
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                required
+              />
+            </div>
+            <div className="space-y-2">
+              <label htmlFor="phone" className="text-sm font-medium">
+                Телефон
+              </label>
+              <Input
+                id="phone"
+                type="tel"
+                placeholder="+7 (999) 123-45-67"
+                value={formData.phone}
+                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                required
+              />
+            </div>
+            <div className="space-y-2">
+              <label htmlFor="message" className="text-sm font-medium">
+                Ваш вопрос (необязательно)
+              </label>
+              <Textarea
+                id="message"
+                placeholder="Расскажите, что вас интересует..."
+                value={formData.message}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                rows={4}
+              />
+            </div>
+            <Button type="submit" className="w-full" size="lg">
+              <Icon name="Send" className="mr-2" size={18} />
+              Отправить заявку
+            </Button>
+          </form>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
