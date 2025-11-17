@@ -147,8 +147,8 @@ export default function Index() {
             </div>
             <div className="relative">
               <img 
-                src="https://cdn.poehali.dev/projects/846a970a-b9c5-4180-9711-a23932e37466/files/21bbe5da-5848-47da-9c4d-05baf505b60f.jpg"
-                alt="Агент с клиентами"
+                src="https://cdn.poehali.dev/files/d85fb274-8489-4fd9-aa19-e55027c11a6d.jpg"
+                alt="Вид из новой квартиры"
                 className="rounded-2xl shadow-2xl w-full h-[500px] object-cover"
               />
             </div>
