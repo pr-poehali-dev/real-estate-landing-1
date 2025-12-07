@@ -9,40 +9,118 @@ import Icon from '@/components/ui/icon';
 
 const districts = [
   {
-    name: 'Центральный округ',
-    description: 'Исторический центр с развитой инфраструктурой, парками и культурными объектами',
-    price: 'от 120 000 ₽/м²',
-    features: ['Развитая инфраструктура', 'Парки и скверы', 'Культурные объекты']
+    name: 'Немецкая деревня',
+    description: 'Живите как на природе с городской инфраструктурой. Малоэтажная застройка, школы, садики',
+    price: 'от 90 000 ₽/м²',
+    features: ['Для семей с детьми', 'Удобный выезд на море', 'Будущий парк и термальный комплекс'],
+    link: '/districts/nemetskaya-derevnya',
+    forWhom: 'Для семей с детьми',
+    rating: { families: 5, youth: 3, drivers: 5, pensioners: 4, investment: 4 }
   },
   {
-    name: 'Карасунский округ',
-    description: 'Современный район с новостройками премиум-класса, рядом с природой',
+    name: 'Западный обход/Энка',
+    description: 'Много школ и садиков, безопасный район с патрулированием. Отличная инфраструктура',
     price: 'от 95 000 ₽/м²',
-    features: ['Новые ЖК', 'Озеро Карасун', 'Экология']
+    features: ['Много школ и садиков', 'Охрана территории', 'Трамвайная ветка в планах'],
+    link: '/districts/zapadny-obhod',
+    forWhom: 'Для семей и инвесторов',
+    rating: { families: 5, youth: 3, drivers: 4, pensioners: 4, investment: 5 }
   },
   {
-    name: 'Прикубанский округ',
-    description: 'Динамично развивающийся округ с доступными ценами и хорошей транспортной доступностью',
+    name: 'Губернский',
+    description: 'Близость к Парку Краснодар, развитая инфраструктура, школы и детские сады',
+    price: 'от 115 000 ₽/м²',
+    features: ['Парк Краснодар рядом', 'Школы и садики', 'Культурные объекты'],
+    link: '/districts/gubernsky',
+    forWhom: 'Для семей и инвесторов',
+    rating: { families: 5, youth: 4, drivers: 3, pensioners: 4, investment: 5 }
+  },
+  {
+    name: 'ул. Кирилла Россинского',
+    description: 'Лучшее соотношение цены и качества. Школы, садики, собственный парк',
+    price: 'от 105 000 ₽/м²',
+    features: ['Цена-качество', 'Парк Краснодар 15 мин', 'Трамвай в планах'],
+    link: '/districts/rossinskogo',
+    forWhom: 'Популярен у семей',
+    rating: { families: 5, youth: 4, drivers: 4, pensioners: 4, investment: 5 }
+  },
+  {
+    name: 'Молодежный',
+    description: 'Школы, садики, поликлиники, удобное транспортное сообщение. Бюджетные цены',
     price: 'от 85 000 ₽/м²',
-    features: ['Доступные цены', 'Транспорт', 'Новостройки']
+    features: ['Развитая инфраструктура', 'Поликлиники', 'Бюджетно'],
+    link: '/districts/molodezhny',
+    forWhom: 'Для семей и пенсионеров',
+    rating: { families: 4, youth: 3, drivers: 3, pensioners: 5, investment: 3 }
+  },
+  {
+    name: 'Гидростроителей',
+    description: 'Зелёный район с озером Старая Кубань. Недорогая вторичка, спокойная жизнь',
+    price: 'от 75 000 ₽/м²',
+    features: ['Самый зелёный', 'Озеро рядом', 'Недорого'],
+    link: '/districts/gidrostroiteley',
+    forWhom: 'Для ограниченного бюджета',
+    rating: { families: 3, youth: 2, drivers: 3, pensioners: 4, investment: 2 }
+  },
+  {
+    name: 'Фестивальный',
+    description: 'Много школ и садиков, близко к центру и ВУЗам. Отлично для студентов',
+    price: 'от 110 000 ₽/м²',
+    features: ['Близко к ВУЗам', 'Много школ', 'Центр рядом'],
+    link: '/districts/festivalny',
+    forWhom: 'Для студентов и семей',
+    rating: { families: 5, youth: 5, drivers: 4, pensioners: 3, investment: 5 }
+  },
+  {
+    name: 'Знаменский',
+    description: 'Бюджетные цены, близко к аэропорту. Федеральный проект «Новый Краснодар»',
+    price: 'от 70 000 ₽/м²',
+    features: ['Аэропорт рядом', 'Очень бюджетно', 'Огромный потенциал'],
+    link: '/districts/znamensky',
+    forWhom: 'Для инвесторов (5-10 лет)',
+    rating: { families: 3, youth: 2, drivers: 5, pensioners: 3, investment: 5 }
+  },
+  {
+    name: 'Новая Адыгея',
+    description: 'Самые низкие цены, семейная ипотека 6%. Важно покупать со знающими людьми',
+    price: 'от 60 000 ₽/м²',
+    features: ['Семейная ипотека 6%', 'Очень дёшево', 'Школы в ЖК'],
+    link: '/districts/novaya-adygeya',
+    forWhom: 'Для очень ограниченного бюджета',
+    rating: { families: 4, youth: 2, drivers: 3, pensioners: 2, investment: 4 }
   }
 ];
 
 const blogPosts = [
   {
-    title: 'Как выбрать район в Краснодаре для переезда',
-    excerpt: 'Подробный гид по выбору района: от инфраструктуры до транспортной доступности',
-    date: '15 ноября 2024'
+    title: 'Губернский район: жизнь рядом с Парком Краснодар',
+    excerpt: 'Честные отзывы жителей, актуальные цены, полный обзор инфраструктуры',
+    date: '15 декабря 2024'
   },
   {
-    title: 'Топ-5 ошибок при покупке квартиры в новостройке',
-    excerpt: 'Рассказываем о самых частых ошибках покупателей и как их избежать',
-    date: '10 ноября 2024'
+    title: 'Район Западного обхода: лучшее для семей с детьми',
+    excerpt: 'Много школ и садиков, безопасность, перспективы развития',
+    date: '12 декабря 2024'
   },
   {
-    title: 'Работа в Краснодаре: как найти вакансию после переезда',
-    excerpt: 'Пошаговая инструкция по поиску работы в Краснодаре для переезжающих',
-    date: '5 ноября 2024'
+    title: 'Немецкая деревня: малоэтажка с городской инфраструктурой',
+    excerpt: 'Полный обзор уникального жилого комплекса с реальными отзывами',
+    date: '8 декабря 2024'
+  },
+  {
+    title: 'Улица Россинского: идеальное соотношение цены и качества',
+    excerpt: 'Почему этот район так популярен среди переезжающих семей',
+    date: '5 декабря 2024'
+  },
+  {
+    title: 'Знаменский: инвестиции в будущее с федеральным проектом',
+    excerpt: 'Как федеральный проект "Новый Краснодар" изменит район',
+    date: '1 декабря 2024'
+  },
+  {
+    title: 'Новая Адыгея: семейная ипотека 6% реально работает',
+    excerpt: 'Как купить квартиру по льготной ипотеке и не ошибиться с выбором ЖК',
+    date: '28 ноября 2024'
   }
 ];
 
@@ -202,31 +280,134 @@ export default function Index() {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Обзоры районов Краснодара</h2>
+            <h2 className="text-4xl font-bold mb-4">Районы Краснодара: где лучше купить квартиру для жизни</h2>
             <p className="text-xl text-muted-foreground">
-              Подробная информация о каждом округе для осознанного выбора
+              Мы сравнили все районы по ценам, инфраструктуре, транспортной доступности и экологии
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {districts.map((district) => (
+          <div className="mb-12 overflow-x-auto">
+            <table className="w-full border-collapse bg-card rounded-lg shadow-md">
+              <thead>
+                <tr className="bg-muted/50">
+                  <th className="p-4 text-left font-semibold">Район</th>
+                  <th className="p-4 text-left font-semibold">Для кого</th>
+                  <th className="p-4 text-left font-semibold">Цена за м²</th>
+                  <th className="p-4 text-center font-semibold">👨‍👩‍👧</th>
+                  <th className="p-4 text-center font-semibold">🎓</th>
+                  <th className="p-4 text-center font-semibold">🚗</th>
+                  <th className="p-4 text-center font-semibold">👴</th>
+                  <th className="p-4 text-center font-semibold">💰</th>
+                  <th className="p-4"></th>
+                </tr>
+              </thead>
+              <tbody>
+                {districts.map((district, index) => (
+                  <tr key={district.name} className={index % 2 === 0 ? 'bg-muted/10' : ''}>
+                    <td className="p-4 font-semibold">{district.name}</td>
+                    <td className="p-4 text-sm text-muted-foreground">{district.forWhom}</td>
+                    <td className="p-4 font-semibold text-primary">{district.price}</td>
+                    <td className="p-4 text-center">
+                      <div className="flex justify-center">
+                        {[...Array(5)].map((_, i) => (
+                          <Icon 
+                            key={i} 
+                            name="Star" 
+                            size={16} 
+                            className={i < district.rating.families ? 'fill-primary text-primary' : 'text-muted'} 
+                          />
+                        ))}
+                      </div>
+                    </td>
+                    <td className="p-4 text-center">
+                      <div className="flex justify-center">
+                        {[...Array(5)].map((_, i) => (
+                          <Icon 
+                            key={i} 
+                            name="Star" 
+                            size={16} 
+                            className={i < district.rating.youth ? 'fill-primary text-primary' : 'text-muted'} 
+                          />
+                        ))}
+                      </div>
+                    </td>
+                    <td className="p-4 text-center">
+                      <div className="flex justify-center">
+                        {[...Array(5)].map((_, i) => (
+                          <Icon 
+                            key={i} 
+                            name="Star" 
+                            size={16} 
+                            className={i < district.rating.drivers ? 'fill-primary text-primary' : 'text-muted'} 
+                          />
+                        ))}
+                      </div>
+                    </td>
+                    <td className="p-4 text-center">
+                      <div className="flex justify-center">
+                        {[...Array(5)].map((_, i) => (
+                          <Icon 
+                            key={i} 
+                            name="Star" 
+                            size={16} 
+                            className={i < district.rating.pensioners ? 'fill-primary text-primary' : 'text-muted'} 
+                          />
+                        ))}
+                      </div>
+                    </td>
+                    <td className="p-4 text-center">
+                      <div className="flex justify-center">
+                        {[...Array(5)].map((_, i) => (
+                          <Icon 
+                            key={i} 
+                            name="Star" 
+                            size={16} 
+                            className={i < district.rating.investment ? 'fill-primary text-primary' : 'text-muted'} 
+                          />
+                        ))}
+                      </div>
+                    </td>
+                    <td className="p-4">
+                      <Button size="sm" variant="outline" onClick={() => setIsDialogOpen(true)}>
+                        Подробнее
+                      </Button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <div className="mt-6 flex gap-4 text-sm text-muted-foreground justify-center flex-wrap">
+              <span>👨‍👩‍👧 - Для семей с детьми</span>
+              <span>🎓 - Для молодежи и студентов</span>
+              <span>🚗 - Для автомобилистов</span>
+              <span>👴 - Для пенсионеров</span>
+              <span>💰 - Для инвестиций</span>
+            </div>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8 mt-16">
+            {districts.slice(0, 6).map((district) => (
               <Card key={district.name} className="overflow-hidden hover:shadow-xl transition-shadow">
-                <div className="h-48 bg-gradient-to-br from-primary/20 to-accent/20" />
+                <div className="h-48 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-primary mb-2">{district.price}</div>
+                    <div className="text-sm text-muted-foreground">{district.forWhom}</div>
+                  </div>
+                </div>
                 <CardContent className="p-6 space-y-4">
                   <h3 className="text-2xl font-semibold">{district.name}</h3>
-                  <p className="text-muted-foreground">{district.description}</p>
-                  <div className="text-2xl font-bold text-primary">{district.price}</div>
+                  <p className="text-muted-foreground text-sm">{district.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {district.features.map((feature) => (
                       <span 
                         key={feature}
-                        className="px-3 py-1 bg-muted rounded-full text-sm"
+                        className="px-3 py-1 bg-muted rounded-full text-xs"
                       >
                         {feature}
                       </span>
                     ))}
                   </div>
-                  <Button variant="outline" className="w-full">
-                    Подробнее о районе
+                  <Button variant="outline" className="w-full" onClick={() => setIsDialogOpen(true)}>
+                    Узнать больше
                   </Button>
                 </CardContent>
               </Card>
@@ -291,6 +472,74 @@ export default function Index() {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-4">Сообщество "Переехавшие и Переезжающие"</h2>
+            <p className="text-xl text-muted-foreground">
+              Присоединяйтесь к нашему чату для получения актуальной информации и поддержки
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <Card className="text-center">
+              <CardContent className="pt-6 space-y-3">
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
+                  <Icon name="Users" className="text-primary" size={32} />
+                </div>
+                <h3 className="font-semibold">Советы о районах и ЖК</h3>
+                <p className="text-sm text-muted-foreground">
+                  От реальных жителей, а не от застройщиков
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center">
+              <CardContent className="pt-6 space-y-3">
+                <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto">
+                  <Icon name="MessageSquare" className="text-accent" size={32} />
+                </div>
+                <h3 className="font-semibold">Нетворкинг</h3>
+                <p className="text-sm text-muted-foreground">
+                  Найдите единомышленников и будущих соседей
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center">
+              <CardContent className="pt-6 space-y-3">
+                <div className="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto">
+                  <Icon name="Shield" className="text-secondary" size={32} />
+                </div>
+                <h3 className="font-semibold">Защита от мошенников</h3>
+                <p className="text-sm text-muted-foreground">
+                  Отличайте правду от слухов и фейковых объявлений
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center">
+              <CardContent className="pt-6 space-y-3">
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
+                  <Icon name="Tag" className="text-primary" size={32} />
+                </div>
+                <h3 className="font-semibold">Выгодные предложения</h3>
+                <p className="text-sm text-muted-foreground">
+                  Первыми узнавайте об акциях застройщиков
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="text-center">
+            <Button size="lg" onClick={() => setIsDialogOpen(true)}>
+              <Icon name="MessageCircle" className="mr-2" size={20} />
+              Присоединиться к сообществу
+            </Button>
           </div>
         </div>
       </section>
