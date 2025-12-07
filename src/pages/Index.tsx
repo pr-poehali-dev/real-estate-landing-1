@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
@@ -147,6 +148,7 @@ export default function Index() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [formData, setFormData] = useState({ name: '', phone: '', message: '' });
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -185,6 +187,12 @@ export default function Index() {
                 className="hover:text-primary transition-colors"
               >
                 Блог
+              </button>
+              <button 
+                onClick={() => navigate('/services')}
+                className="hover:text-primary transition-colors"
+              >
+                Услуги
               </button>
               <button 
                 onClick={() => setActiveSection('contacts')}
